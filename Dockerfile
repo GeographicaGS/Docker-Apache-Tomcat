@@ -8,7 +8,7 @@ MAINTAINER Juan Pedro Perez "jp.alcantara@geographica.gs"
 ENV REFRESHED_AT 2015-04-06
 ENV JAVA_HOME /usr/local/jdk1.7.0_75
 ENV JRE_HOME /usr/local/jdk1.7.0_75/jre
-nENV ANT_HOME /usr/local/apache-ant-1.9.4
+ENV ANT_HOME /usr/local/apache-ant-1.9.4
 ENV CATALINA_HOME /usr/local/apache-tomcat-8.0.18
 ENV PATH $JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib
