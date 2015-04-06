@@ -19,7 +19,7 @@ Usage Pattern
 Build the image directly from GitHub (this can take a while):
 
 ```Shell
-docker build -t="geographica/tomcat" https://github.com/GeographicaGS/Docker-Apache-Tomcat.git
+docker build -t="geographica/apache-tomcat" https://github.com/GeographicaGS/Docker-Apache-Tomcat.git
 ```
 
 or pull it from Docker Hub:
