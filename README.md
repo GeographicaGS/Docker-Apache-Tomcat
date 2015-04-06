@@ -20,7 +20,7 @@ Tags
 ----
 Different versions may be available in the future. By now:
 
-- __v8.0.18:__ _Oracle Java Virtual Machine Server JDK 1.7.0-75, _Apache Ant 1.9.4_, _Apache Tomcat 8.0.18_, and _Apache Portable Runtime 1.5.1_.
+- __v8.0.18:__ Oracle Java Virtual Machine Server JDK 1.7.0-75, Apache Ant 1.9.4, Apache Tomcat 8.0.18, and Apache Portable Runtime 1.5.1.
 
 Usage Pattern
 -------------
