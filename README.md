@@ -5,14 +5,22 @@ What does this Docker image contains?
 -------------------------------------
 The following:
 
-- an Oracle Java Virtual Machine Server JDK 1.7.0-75, installed not from packages, but from the binaries provided by Oracle;
+- an Oracle Java Virtual Machine Server JDK, installed not from packages, but from the binaries provided by Oracle;
 
-- binary Apache Ant 1.9.4;
+- binary Apache Ant;
 
-- Apache Tomcat 8.0.18 as provided by the Apache Foundation (not from packages);
+- Apache Tomcat as provided by the Apache Foundation (not from packages);
 
-- the Apache Portable Runtime 1.5.1, compiled from source, and enabled into Tomcat.
+- the Apache Portable Runtime, compiled from source, and enabled into Tomcat.
 
+Check _Tags_ for version info.
+
+
+Tags
+----
+Different versions may be available in the future. By now:
+
+- __v8.0.18:__ _Oracle Java Virtual Machine Server JDK 1.7.0-75, _Apache Ant 1.9.4_, _Apache Tomcat 8.0.18_, and _Apache Portable Runtime 1.5.1_.
 
 Usage Pattern
 -------------
