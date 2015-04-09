@@ -5,8 +5,6 @@ What does this Docker image contains?
 -------------------------------------
 The following:
 
-- an Oracle Java Virtual Machine Server JDK, installed not from packages, but from the binaries provided by Oracle;
-
 - binary Apache Ant;
 
 - Apache Tomcat as provided by the Apache Foundation (not from packages);
@@ -51,9 +49,3 @@ docker run -ti -p 8080:8080 --name whatever geographica/apache-tomcat:v8.0.18
 ```
 
 Tomcat's output can be seen and it can be closed with CTRL-C.
-
-TODO
-----
-Create another Docker with the JVM installed separately, and with JMX installed.
-
-Externalize the webapps folder to a volume on the host.
