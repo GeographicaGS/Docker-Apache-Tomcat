@@ -1,5 +1,5 @@
-Docker Image for Oracle JVM & Apache Tomcat
-===========================================
+Docker Image for Apache Tomcat
+==============================
 
 What does this Docker image contains?
 -------------------------------------
@@ -31,7 +31,7 @@ docker build -t="geographica/apache-tomcat:v8.0.18" https://github.com/Geographi
 or pull it from Docker Hub:
 
 ```Shell
-docker pull geographica/apache-tomcat
+docker pull geographica/apache-tomcat:v8.0.18
 ```
 
 To start the container interactively:
