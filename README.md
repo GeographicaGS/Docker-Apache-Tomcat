@@ -49,3 +49,15 @@ docker run -ti -p 8080:8080 --name whatever geographica/apache-tomcat:v8.0.18
 ```
 
 Tomcat's output can be seen and it can be closed with CTRL-C.
+
+
+
+
+docker run --rm -ti -p 8085:8080 -p 3335:3333 -e "JMX=true" -e "JMX_HOSTNAME=192.168.1.86" d
+
+
+
+
+JMX
+---
+JMX access control are based on __packages/jmxremote.*__. They are copied to __$JAVA_HOME__. Alter them before __docker build__ or enter into the container and change them manually to change permissions.
