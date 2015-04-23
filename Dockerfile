@@ -3,17 +3,14 @@ FROM geographica/java_virtual_machine:server_jre_7u75_x64
 
 MAINTAINER Juan Pedro Perez "jp.alcantara@geographica.gs"
 
-# This is a clever instruction, for, if changed, will force the build command to
-# skip cache and recreate the whole image from scratch
-ENV REFRESHED_AT 2015-04-06
 ENV JAVA_HOME /usr/local/jdk1.7.0_75
 ENV JRE_HOME /usr/local/jdk1.7.0_75/jre
 ENV ANT_HOME /usr/local/apache-ant-1.9.4
 ENV CATALINA_HOME /usr/local/apache-tomcat-8.0.18
 ENV PATH $JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib
-ENV JMX false
-ENV JMX_HOSTNAME 127.0.0.1
+ENV JMX true
+ENV JMX_HOSTNAME localhost
 ENV JMX_CONF_FOLDER $CATALINA_HOME/conf
 ENV MEM 64m
 ENV MMEM 64m
