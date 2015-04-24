@@ -5,8 +5,6 @@ What does this Docker image contains?
 -------------------------------------
 The following:
 
-- binary Apache Ant;
-
 - Apache Tomcat as provided by the Apache Foundation (not from packages);
 
 - the Apache Portable Runtime, compiled from source, and enabled into Tomcat.
@@ -48,10 +46,10 @@ docker run -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 --name whatever geograph
 
 Tomcat's output can be seen and it can be closed with CTRL-C.
 
-By default, JMX is activated. See all important environmental variables affecting the virtual machine at the __Dockerfile__. This can be overriden at container's creation. For example, if JMX wants to be disabled:
+By default, JMX is activated. See all important environmental variables affecting the virtual machine in the __Dockerfile__. They can be overriden at container's creation. For example, to disable JMX:
 
 ```Shell
-docker run --rm -ti -p 8085:8080 -e "JMX=false" --name whatever geographica/apache-tomcat:v8.0.18
+docker run --rm -ti -p 8085:8080 -e "JMX=false" geographica/apache-tomcat:v8.0.18
 ```
 
 Also several JVM performance environmental variables can be overriden, for example:
