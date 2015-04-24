@@ -18,7 +18,7 @@ Tags
 ----
 Different versions may be available in the future. By now:
 
-- __v8.0.18:__ Oracle Java Virtual Machine Server JDK 1.7.0-75, Apache Ant 1.9.4, Apache Tomcat 8.0.18, and Apache Portable Runtime 1.5.1.
+- __v8.0.18:__ Oracle Java Virtual Machine Server JDK 1.7.0-75, Apache Tomcat 8.0.18, and Apache Portable Runtime 1.5.1.
 
 Usage Pattern
 -------------
@@ -40,23 +40,25 @@ To start the container interactively:
 docker run -ti -p 8080:8080 --name whatever geographica/apache-tomcat:v8.0.18 /bin/bash
 ```
 
-in case memory needs to be increased for the JVM, for example. Apache Tomcat environment is detailed in _bin/setenv.sh_.
-
-To start Tomcat directly:
+or, if JMX is wanted:
 
 ```Shell
-docker run -ti -p 8080:8080 --name whatever geographica/apache-tomcat:v8.0.18
+docker run -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 --name whatever geographica/apache-tomcat:v8.0.18
 ```
 
 Tomcat's output can be seen and it can be closed with CTRL-C.
 
+By default, JMX is activated. See all important environmental variables affecting the virtual machine at the __Dockerfile__. This can be overriden at container's creation. For example, if JMX wants to be disabled:
 
+```Shell
+docker run --rm -ti -p 8085:8080 -e "JMX=false" --name whatever geographica/apache-tomcat:v8.0.18
+```
 
+Also several JVM performance environmental variables can be overriden, for example:
 
-docker run --rm -ti -p 8085:8080 -p 3335:3333 -e "JMX=true" -e "JMX_HOSTNAME=192.168.1.86" d
-
-
-
+```Shell
+docker run --rm -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 -e "MEM=256m" -e "MMEM=256m" -e "PMEM=1024k" geographica/apache-tomcat:v8.0.18
+```
 
 JMX
 ---
