@@ -9,15 +9,20 @@ ENV ANT_HOME /usr/local/apache-ant-1.9.4
 ENV CATALINA_HOME /usr/local/apache-tomcat-8.0.18
 ENV PATH $JAVA_HOME/bin:$JRE_HOME/bin:$ANT_HOME/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib:$CATALINA_HOME/lib:$LD_LIBRARY_PATH
+# To use JMX or not
 ENV JMX true
+# JMX port
 ENV JMX_PORT 3333
 ENV JMX_HOSTNAME localhost
 ENV JMX_CONF_FOLDER $CATALINA_HOME/conf
+# JMX access file
 ENV JMX_ACCESS_FILE $JMX_CONF_FOLDER/jmxremote.access
+# JMX password file
 ENV JMX_PASSWORD_FILE $JMX_CONF_FOLDER/jmxremote.password
+# Max heap size
 ENV MEM 64m
+# Initial heap size
 ENV MMEM 64m
-ENV PMEM 512k
 
 # Add all packages
 ADD packages/apache-ant-1.9.4-bin.tar.bz2 /usr/local
