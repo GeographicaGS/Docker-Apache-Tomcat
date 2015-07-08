@@ -23,7 +23,7 @@ Usage Pattern
 Build the image directly from GitHub (this can take a while):
 
 ```Shell
-docker build -t="geographica/apache-tomcat:v8.0.18" https://github.com/GeographicaGS/Docker-Apache-Tomcat.git
+docker build -t="geographica/apache-tomcat:v8.0.18" /path/to/githubclonefolder
 ```
 
 or pull it from Docker Hub:
@@ -38,24 +38,18 @@ To start the container interactively:
 docker run -ti -p 8080:8080 --name whatever geographica/apache-tomcat:v8.0.18 /bin/bash
 ```
 
-or, if JMX is wanted:
+or, if JMX is wanted (by default, JMX is deactivated):
 
 ```Shell
-docker run -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 --name whatever geographica/apache-tomcat:v8.0.18
+docker run -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 -e "JMX=true" --name whatever geographica/apache-tomcat:v8.0.18
 ```
 
 Tomcat's output can be seen and it can be closed with CTRL-C.
 
-By default, JMX is activated. See all important environmental variables affecting the virtual machine in the __Dockerfile__. They can be overriden at container's creation. For example, to disable JMX:
+See all important environmental variables affecting the virtual machine in the __Dockerfile__. They can be overriden at container's creation. For example:
 
 ```Shell
-docker run --rm -ti -p 8085:8080 -e "JMX=false" geographica/apache-tomcat:v8.0.18
-```
-
-Also several JVM performance environmental variables can be overriden, for example:
-
-```Shell
-docker run --rm -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 -e "MEM=256m" -e "MMEM=256m" -e "PMEM=1024k" geographica/apache-tomcat:v8.0.18
+docker run --rm -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 -e "JMX=true" -e "XMX=256m" -e "XMS=256m" -e "MAXPERMSIZE=1024k" geographica/apache-tomcat:v8.0.18
 ```
 
 JMX
