@@ -1,6 +1,8 @@
 Docker Image for Apache Tomcat
 ==============================
 
+This is the README.md for Docker tag __v8.0.18__. Please refer to the __Master__ README.md for updated information.
+
 What does this Docker image contains?
 -------------------------------------
 The following:
@@ -12,18 +14,32 @@ The following:
 Check _Tags_ for version info.
 
 
-Tags
-----
+Versions
+--------
 Different versions may be available in the future. By now:
 
-- __v8.0.18:__ Oracle Java Virtual Machine Server JDK 1.7.0-75, Apache Tomcat 8.0.18, and Apache Portable Runtime 1.5.1.
+- __v8.0.18:__ Oracle Java Virtual Machine Server JDK 1.7.0-75, Apache Ant 1.9.4, Apache Tomcat 8.0.18, and Apache Portable Runtime 1.5.1.
+
+Guidelines for Creating New Docker Tags in this Repository
+----------------------------------------------------------
+Each Docker tag in this repository addresses changes in library versions bundled together. Follow this guidelines when creating new Docker tags for this repo:
+
+- to create and maintain new Docker tags, make a GIT branch with a descriptive name. Each tag must match its branch in name. Do not use GIT tags to support Docker tags, for branches does exactly the same job and does it better in this case. Never destroy those branches and keep them open;
+
+- the master branch should reflect the most updated README.md. This means that the master branch may not point to the most "advanced" branch in terms of library versions. But always refer to the master README.md for the most updated information;
+
+- don't forget to document detailed information about the new GIT branch / Docker tag in the former section;
+
+- don't forget to update the first line of this README.md warning about the README.md version to tell the user about the README.md being read.
 
 Usage Pattern
 -------------
 Build the image directly from GitHub (this can take a while):
 
 ```Shell
-docker build -t="geographica/apache-tomcat:v8.0.18" /path/to/githubclonefolder
+git checkout tagbranch
+
+docker build -t="geographica/apache-tomcat:v8.0.18" .
 ```
 
 or pull it from Docker Hub:
