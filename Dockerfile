@@ -1,6 +1,4 @@
-# Version: 0.0.1
 FROM geographica/java_virtual_machine:server_jre_7u75_x64
-
 MAINTAINER Juan Pedro Perez "jp.alcantara@geographica.gs"
 
 ENV JAVA_HOME /usr/local/jdk1.7.0_75
