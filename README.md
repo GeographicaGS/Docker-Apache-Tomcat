@@ -68,6 +68,12 @@ See all important environmental variables affecting the virtual machine in the _
 docker run --rm -ti -p 8080:8080 -p 3333:3333 -p 62911:62911 -e "JMX=true" -e "XMX=256m" -e "XMS=256m" -e "MAXPERMSIZE=1024k" geographica/apache-tomcat:v8.0.18
 ```
 
+In normal conditions, run the container this way:
+
+```Shell
+docker run -d -P --name whatever geographica/apache-tomcat:v8.0.18
+```
+
 JMX
 ---
 JMX access control are based on __packages/jmxremote.*__. They are copied to __$JAVA_HOME__. Alter them before __docker build__ or enter into the container and change them manually to change permissions.

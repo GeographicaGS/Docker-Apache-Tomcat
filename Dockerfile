@@ -37,6 +37,9 @@ WORKDIR /usr/local/
 RUN chmod 777 compile.sh
 RUN ./compile.sh
 
+VOLUME /usr/local/apache-tomcat-8.0.18/logs
+VOLUME /usr/local/apache-tomcat-8.0.18/webapps
+
 EXPOSE 8080
 EXPOSE 3333
 EXPOSE 62911
