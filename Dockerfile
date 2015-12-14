@@ -23,6 +23,9 @@ ENV XMX 64m
 ENV XMS 64m
 # PermSize size
 ENV MAXPERMSIZE 64m
+# Locale
+# ENV GENERATELOCALE=es_ES.UTF-8;es_ES ISO-8859-1
+# ENV TLOCALE=es_ES.utf8
 
 # Add all packages
 ADD packages/apache-ant-1.9.4-bin.tar.bz2 /usr/local
@@ -43,4 +46,9 @@ VOLUME /usr/local/apache-tomcat-8.0.18/webapps
 EXPOSE 8080
 EXPOSE 3333
 EXPOSE 62911
+
+
+
+# ENTRYPOINT ["/usr/local/bin/run.sh"]
+
 CMD su tomcat -s /bin/bash -c "$CATALINA_HOME/bin/catalina.sh run"
