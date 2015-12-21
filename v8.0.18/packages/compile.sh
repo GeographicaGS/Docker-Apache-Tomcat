@@ -1,5 +1,17 @@
+#!/bin/bash
+
 # Update and download basic packages
-apt-get update && apt-get install -y build-essential libssl-dev
+apt-get update && apt-get install -y build-essential libssl-dev locales
+
+# Define locals
+IFS=',' read -r -a array <<< $GENERATELOCALE
+
+for i in "${array[@]}"
+do
+    locale-gen $i
+done;
+
+locale-gen
 
 # Install Apache Ant
 cd apache-ant-1.9.4 ; ant -f fetch.xml -Ddest=system ; cd ..
@@ -32,4 +44,4 @@ chown tomcat:tomcat $JMX_CONF_FOLDER/jmxremote.*
 # Cleanup
 rm -Rf /usr/local/apache-ant-1.9.4
 rm -Rf /usr/local/apr-1.5.1
-rm -Rf /usr/local/compile.sh
+rm -Rf /usr/local/bin/compile.sh

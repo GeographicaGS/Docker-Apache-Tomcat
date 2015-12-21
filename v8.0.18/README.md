@@ -72,3 +72,11 @@ JVM tuning:
 - __XMX:__ defaults to _64m_;
 - __XMS:__ defaults to _64m_;
 - __MAXPERMSIZE:__ defaults to _64m_.
+
+Locale:
+
+- __GENERATELOCALE:__ locales to generate. Defaults to _es_ES.UTF-8,es_ES.ISO-8859-1_;
+- __TLOCALE:__ target locale. Defaults to _es_ES.utf8_;
+- __LANG:__ target language. Defaults to _$TLOCALE_;
+- __LANGUAGE:__ target language. Defaults to _es_ES:es_;
+- __LC_ALL:__ LC_ALL, whatever it means. Defaults to _$TLOCALE_.

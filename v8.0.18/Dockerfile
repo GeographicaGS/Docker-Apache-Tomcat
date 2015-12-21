@@ -29,21 +29,34 @@ ENV XMS 64m
 # PermSize size
 ENV MAXPERMSIZE 64m
 
+# Locale
+ENV GENERATELOCALE="es_ES.UTF-8,es_ES.ISO-8859-1"
+ENV TLOCALE=es_ES.utf8
+ENV LANG=$TLOCALE
+ENV LANGUAGE es_ES:es
+ENV LC_ALL $TLOCALE
+
 # Add all packages
 ADD packages/apache-ant-1.9.4-bin.tar.bz2 /usr/local
 ADD packages/apache-tomcat-8.0.18.tar.gz /usr/local
 ADD packages/apr-1.5.1.tar.gz /usr/local
-ADD packages/setenv.sh $CATALINA_HOME/bin/
+ADD packages/compile.sh /usr/local/bin/
+ADD packages/gosu-amd64 /usr/local/bin/gosu
 ADD packages/jmxremote.* $CATALINA_HOME/conf/
-ADD packages/compile.sh /usr/local/
+ADD packages/run.sh /usr/local/bin/
+ADD packages/setenv.sh $CATALINA_HOME/bin/
 
 # Do everything
-WORKDIR /usr/local/
+WORKDIR /usr/local/bin
 RUN chmod 777 compile.sh
+RUN chmod 777 run.sh
 RUN ./compile.sh
+
+VOLUME $CATALINA_HOME/logs
+VOLUME $CATALINA_HOME/webapps
 
 EXPOSE 8080
 EXPOSE 3333
 EXPOSE 62911
 
-CMD su tomcat -s /bin/bash -c "$CATALINA_HOME/bin/catalina.sh run"
+ENTRYPOINT ["/usr/local/bin/run.sh"]
