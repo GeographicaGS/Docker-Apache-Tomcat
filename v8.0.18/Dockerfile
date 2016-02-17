@@ -20,6 +20,11 @@ ENV JMX_ACCESS_FILE $JMX_CONF_FOLDER/jmxremote.access
 # JMX password file
 ENV JMX_PASSWORD_FILE $JMX_CONF_FOLDER/jmxremote.password
 
+# Proxy
+ENV PROXY false
+ENV PROXYNAME localhost
+ENV PROXYPORT 8080
+
 # Max heap size
 ENV XMX 64m
 
